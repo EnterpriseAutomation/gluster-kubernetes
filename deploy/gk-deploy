@@ -234,7 +234,7 @@ abort() {
   if [[ ${GLUSTER} -eq 1 ]]; then
     while read -r node; do
       debug "Removing label from '${node}' as a GlusterFS node."
-      eval_output "${CLI} label nodes \"${node}\" storagenode- 2>&1"
+      eval_output "${CLI} label nodes --all \"${node}\" storagenode- 2>&1"
     done <<< "$(echo -e "${NODES}")"
     debug "Removing glusterfs daemonset."
     eval_output "${CLI} delete ds --selector=\"glusterfs\" 2>&1"
