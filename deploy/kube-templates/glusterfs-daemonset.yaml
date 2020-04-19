@@ -9,6 +9,9 @@ metadata:
     description: GlusterFS DaemonSet
     tags: glusterfs
 spec:
+  selector:
+    matchLabels:
+      name: glusterfs
   template:
     metadata:
       name: glusterfs
